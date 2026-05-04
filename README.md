@@ -10,7 +10,7 @@ API REST construida con **Flask** y **SQLite**, con autenticación de usuarios y
 
 ```bash
 git clone https://github.com/luisimuller/PFO02.git
-cd pfo2-gestor-tareas
+cd PFO02
 ```
 
 ### 2. Instalar dependencias
