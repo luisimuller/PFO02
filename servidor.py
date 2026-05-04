@@ -11,88 +11,134 @@ BIENVENIDA_HTML = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PFO2 - Gestor de Tareas</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 50px 60px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      max-width: 650px;
-      width: 90%;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(233,69,96,0.2);
-      border: 1px solid #e94560;
-      color: #e94560;
-      font-size: 0.8rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    h1 { font-size: 2.5rem; margin-bottom: 8px; color: #ffffff; }
-    .bienvenida {
-      font-size: 1.2rem;
-      color: #00d4ff;
-      margin: 16px 0 6px;
-      font-weight: 600;
-    }
-    p { color: #aaa; margin: 8px 0; line-height: 1.6; font-size: 0.95rem; }
-    .divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin: 28px 0;
-    }
-    .endpoints { text-align: left; }
-    .endpoint {
-      background: rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 12px 18px;
-      margin: 8px 0;
-      font-family: monospace;
-      font-size: 0.9rem;
-    }
-    .method-post { color: #e94560; font-weight: bold; margin-right: 8px; }
-    .method-get  { color: #4caf50; font-weight: bold; margin-right: 8px; }
-    .route { color: #00d4ff; }
-    .footer {
-      margin-top: 30px;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: #fdf0f5;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: stretch;
+  }
+  .left {
+    width: 45%;
+    background: #e8a0b8;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .left .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7a2d4e;
+    font-weight: 500;
+  }
+  .left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: #2d0f1e;
+    line-height: 1.15;
+    margin-top: 40px;
+  }
+  .left .sub {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: #6b2040;
+    line-height: 1.6;
+  }
+  .left .footer {
+    font-size: 0.75rem;
+    color: #a05070;
+    letter-spacing: 0.5px;
+  }
+  .right {
+    width: 55%;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+  .right .section-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c2527a;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .endpoint-card {
+    background: #fff;
+    border: 1.5px solid #f4c2d8;
+    border-radius: 16px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .endpoint-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+  }
+  .post { background: #f4c2d8; color: #8c2d52; }
+  .get  { background: #d4f0e4; color: #1a6e47; }
+  .route {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #2d1a24;
+    font-weight: 500;
+  }
+  .desc {
+    font-size: 0.78rem;
+    color: #b090a0;
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="badge">PFO 2 — Programacion sobre Redes</div>
-    <h1>📋 Sistema de Gestión de Tareas</h1>
-    <p class="bienvenida">¡Bienvenido/a al sistema!</p>
-    <p>Este proyecto implementa una API REST con registro de usuarios,<br>
-       autenticacion segura y persistencia de datos con SQLite.</p>
-    <hr class="divider">
-    <div class="endpoints">
-      <div class="endpoint"><span class="method-post">POST</span><span class="route">/registro</span> — Crear una cuenta nueva</div>
-      <div class="endpoint"><span class="method-post">POST</span><span class="route">/login</span> — Iniciar sesion con tu cuenta</div>
-      <div class="endpoint"><span class="method-get">GET</span> <span class="route">/tareas</span> — Esta pagina de bienvenida</div>
+  <div class="left">
+    <div>
+      <p class="tag">PFO 2 · Prog. sobre Redes</p>
+      <h1>Gestión de Tareas</h1>
+      <p class="sub">API REST con autenticación segura y persistencia de datos con SQLite.</p>
     </div>
-    <div class="footer">Tecnicatura Superior en Desarrollo de Software &mdash; 2026</div>
+    <p class="footer">Tecnicatura Superior en Desarrollo de Software · 2026</p>
+  </div>
+  <div class="right">
+    <p class="section-label">Endpoints disponibles</p>
+    <div class="endpoint-card">
+      <div class="endpoint-left">
+        <span class="badge post">POST</span>
+        <span class="route">/registro</span>
+      </div>
+      <span class="desc">Crear cuenta nueva</span>
+    </div>
+    <div class="endpoint-card">
+      <div class="endpoint-left">
+        <span class="badge post">POST</span>
+        <span class="route">/login</span>
+      </div>
+      <span class="desc">Iniciar sesión</span>
+    </div>
+    <div class="endpoint-card">
+      <div class="endpoint-left">
+        <span class="badge get">GET</span>
+        <span class="route">/tareas</span>
+      </div>
+      <span class="desc">Página de bienvenida</span>
+    </div>
   </div>
 </body>
 </html>

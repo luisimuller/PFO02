@@ -135,7 +135,7 @@ pfo2-gestor-tareas/
 ![Captura del registro exitoso de un nuevo usuario](image-3.png)
 ![Captura de mensaje de error al iniciar sesión con contraseña incorrecta](image-4.png)
 ![Captura de mensaje de éxito al iniciar sesión con contraseña correcta](image-5.png)
-![Captura de pantalla del HTML generado](image-6.png)
+![Captura de pantalla del HTML generado](image-7.png)
 
 ---
 ##  Respuestas de preguntas teóricas
