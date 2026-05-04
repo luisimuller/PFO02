@@ -184,6 +184,6 @@ def tareas():
 # ─── Arranque ─────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     init_db()
-    print("✅ Base de datos inicializada.")
-    print("🚀 Servidor corriendo en http://127.0.0.1:8000")
+    print(" Base de datos inicializada.")
+    print(" Servidor corriendo en http://127.0.0.1:8000")
     app.run(debug=False, port=8000)
