@@ -128,3 +128,22 @@ pfo2-gestor-tareas/
 ```
 
 ---
+##  Captura de pantallas de la ejecución del Cliente-Servidor
+
+![Captura exitosa de inicio de servidor y cliente](image-1.png)
+![Captura de la devolución del error 409 al querer registrar un usuario existente](image-2.png)
+![Captura del registro exitoso de un nuevo usuario](image-3.png)
+![Captura de mensaje de error al iniciar sesión con contraseña incorrecta](image-4.png)
+![Captura de mensaje de éxito al iniciar sesión con contraseña correcta](image-5.png)
+![Captura de pantalla del HTML generado](image-6.png)
+
+---
+##  Respuestas de preguntas teóricas
+
+## ¿Por qué hashear contraseñas?
+Porque guardar contraseñas en texto plano es muy peligroso. Si alguien accede a la base de datos, vería todas las contraseñas directamente. El hasheo convierte la contraseña en una cadena irreversible, lo que significa que aunque roben la base de datos, no pueden recuperar la contraseña original.
+
+## Ventajas de usar SQLite en este proyecto
+Sin servidor: No necesita instalación ni configuración de un motor de base de datos externo. Todo funciona desde el mismo archivo.
+Un solo archivo: Toda la base de datos vive en tareas.db, lo que lo hace fácil de mover, respaldar o eliminar.
+Integrado en Python: El módulo sqlite3 viene incluido en Python por defecto, sin necesidad de instalar nada extra.

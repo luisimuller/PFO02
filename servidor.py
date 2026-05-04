@@ -82,7 +82,7 @@ BIENVENIDA_HTML = """
 <body>
   <div class="card">
     <div class="badge">PFO 2 — Programacion sobre Redes</div>
-    <h1>📋 Gestor de Tareas</h1>
+    <h1>📋 Sistema de Gestión de Tareas</h1>
     <p class="bienvenida">¡Bienvenido/a al sistema!</p>
     <p>Este proyecto implementa una API REST con registro de usuarios,<br>
        autenticacion segura y persistencia de datos con SQLite.</p>
